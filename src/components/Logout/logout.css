@@ -1,0 +1,105 @@
+/* Overall page */
+.logout-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  background-color: #f4f3f1;
+}
+
+/* Header section */
+.logout-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logout-back-btn {
+  position: absolute;
+  left: 0;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #333;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.logout-back-btn:hover {
+  transform: translateX(-3px);
+}
+
+.logout-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  color: #222;
+}
+
+/* Card content */
+.logout-card {
+  background-color: #fff;
+  border-radius: 1.8rem;
+  padding: 2rem;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 8rem;
+}
+
+.logout-icon {
+  color: #f97316;
+  margin-bottom: 1rem;
+}
+
+.logout-question {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.logout-message {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.logout-link {
+  color: #f97316;
+  text-decoration: underline;
+}
+
+/* Buttons */
+.logout-btn-group {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.logout-btn {
+  flex: 1;
+  padding: 0.8rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.logout-btn.cancel {
+  background-color: #fed7aa;
+  color: #111;
+}
+
+.logout-btn.confirm {
+  background-color: #fb923c;
+  color: #fff;
+}
+
+.logout-btn:hover {
+  transform: scale(1.03);
+}

@@ -1,0 +1,123 @@
+/* === Container === */
+.splash-screen {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+/* === Overlay === */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  animation: fadeIn 1s ease forwards;
+}
+
+/* === Text Content === */
+.text-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.title {
+  font-size: 3.75rem; /* 6xl */
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #fed7aa; /* orange-200 */
+  animation: slideUp 1s ease forwards;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 4.5rem; /* 7xl */
+  }
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #ffedd5; /* orange-100 */
+  max-width: 28rem;
+  animation: fadeIn 1.2s ease forwards;
+  animation-delay: 0.2s;
+}
+
+/* === Bottom Section === */
+.bottom-section {
+  width: 100%;
+  padding: 0 1.5rem 1.5rem;
+  position: relative;
+  z-index: 10;
+  margin-top: -2rem;
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.get-started-btn {
+  width: 100%;
+  background-color: #fdba74; /* orange-300 */
+  color: #000;
+  font-weight: 600;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.get-started-btn:hover {
+  background-color: #fb923c; /* orange-400 */
+}
+
+.login-text {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: white;
+}
+
+.login-link {
+  text-decoration: underline;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.login-link:hover {
+  color: #fdba74; /* orange-300 */
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

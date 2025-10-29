@@ -1,0 +1,89 @@
+.notification
+{
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 2rem;
+    gap: 1.5rem;
+}
+
+.notification__header
+{
+    display: flex;
+    align-items: center;
+}
+
+.notification__header > h2
+{
+    margin: auto;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.notification__header > button
+{
+    font-weight: 200;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+}
+
+.notification__card
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 25px;
+    padding: 1rem 1rem 7rem 1rem;
+}
+
+.notification__card > .card__name
+{
+    display: flex;
+    align-items: center;
+}
+
+.card__icon
+{
+    height: 35px;
+    width: 34px;
+}
+
+.card__text
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.card__text > h4
+{
+    font-size: 13px;
+    font-size: 400;
+}
+
+.card__text > p
+{
+    font-size: 11px;
+    font-weight: 400;
+}
+
+.card__amount 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.card__amount > h4
+{
+    font-size: 13px;
+    font-weight: 400;
+    color: red;
+}
+
+.card__amount > p
+{
+    font-size: 11px;
+    color: red;
+}

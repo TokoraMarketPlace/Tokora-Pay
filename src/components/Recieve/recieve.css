@@ -1,0 +1,71 @@
+
+.recieve
+{
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2rem;
+    gap: 1.5rem;
+}
+
+.recieve > .header
+{
+    display: flex;
+    flex-direction: row;
+    /* gap: .5rem; */
+    align-items: center;
+}
+
+.recieve > .header > .previous
+{
+    background-color: transparent;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.recieve > .header > h2
+{
+    margin: auto;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.recieve > .body 
+{
+    display: flex;
+    padding: 3rem;
+    text-align: center;
+}
+
+.recieve > .body > p
+{
+    font-weight: 400;
+    font-size: 14px;
+
+}
+
+.recieve > .bottom
+{
+    display: flex;
+    /* text-align: left; */
+}
+
+.bottom > .inputs
+{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.bottom > .inputs > p
+{
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;    
+}
+
+.bottom > .inputs > input
+{
+    padding: 1rem;
+    border-radius: 15px;
+}

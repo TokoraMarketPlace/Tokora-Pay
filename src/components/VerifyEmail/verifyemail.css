@@ -1,0 +1,32 @@
+.verifyemail
+{
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 2rem;
+    gap: 1.5rem;
+}
+
+.verifyemail > h2
+{
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.verifyemail > p
+{
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.verify
+{
+    border-radius: 18px;
+    /* height: 20px; */
+    padding: 1.2rem 1rem;
+    border: none;
+    background-color: rgba(247, 148, 29, 1);
+    border: 1px solid rgba(213, 117, 1, 1);
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+}

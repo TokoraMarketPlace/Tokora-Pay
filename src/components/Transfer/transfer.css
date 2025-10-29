@@ -1,0 +1,137 @@
+/* Container Layout */
+.transfer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  height: 100%;
+  background-color: #fff;
+}
+
+/* Header Section */
+.transfer-header {
+  display: flex;
+  align-items: center;
+}
+
+.back-icon {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.back-icon:hover {
+  transform: scale(1.1);
+}
+
+.transfer-title {
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* Form Area */
+.transfer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.transfer-label {
+  font-weight: 500;
+  font-size: 14px;
+  color: #374151;
+}
+
+.transfer-input {
+  padding: 1rem 0.75rem;
+  border-radius: 15px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  width: 100%;
+  background-color: whitesmoke;
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.3s;
+}
+
+.transfer-input:focus {
+  border-color: #fb923c;
+  box-shadow: 0 0 0 2px rgba(251, 146, 60, 0.3);
+  background-color: #fff;
+}
+
+/* Bank Input with Icon */
+.bank-input-wrapper {
+  position: relative;
+}
+
+.bank-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+/* Error and Status Messages */
+.error {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  background-color: #fee2e2;
+  border: 1px solid #fca5a5;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+}
+
+.status-message {
+  color: #10b981;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* Buttons */
+.next-button {
+  background-color: #fb923c;
+  color: white;
+  font-weight: bold;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  margin-top: 2rem;
+  margin-bottom: auto;
+}
+
+.next-button:hover {
+  background-color: #f97316;
+  transform: translateY(-1px);
+}
+
+.next-button:disabled {
+  background-color: #fbbf24;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* Optional loading spinner styling (for backend waiting states) */
+.loading-spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #fb923c;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

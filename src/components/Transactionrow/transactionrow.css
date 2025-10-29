@@ -1,0 +1,60 @@
+.transaction-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.transaction-row:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.transaction-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #9ca3af;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.transaction-info {
+  flex: 1;
+}
+
+.transaction-name {
+  font-weight: 500;
+}
+
+.transaction-time {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.transaction-amount {
+  text-align: right;
+}
+
+.transaction-amount .sent {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.transaction-amount .received {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.transaction-ngn {
+  font-size: 0.75rem;
+  color: #6b7280;
+}

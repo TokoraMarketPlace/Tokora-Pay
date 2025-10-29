@@ -1,0 +1,133 @@
+.vendor-container {
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem 1.5rem;
+  /* background-color: #f9fafb; */
+}
+
+.vendor-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.vendor-header > h2
+{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.back-button:hover {
+  transform: scale(1.05);
+}
+
+.vendor-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.vendor-card {
+  background-color: rgba(255, 208, 152, 1);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.label-text {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount-input {
+  width: 70%;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  text-align: left;
+}
+
+.amount-input.read-only {
+  color: #6b7280;
+}
+
+.currency-text {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #374151;
+}
+
+.subtext {
+  font-size: 12px;
+  text-align: right;
+  color: #9ca3af;
+}
+
+.arrow-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.75rem 0;
+  color: #9ca3af;
+}
+
+/* Button styles */
+.send-button {
+  background-color: #fb923c;
+  color: white;
+  font-weight: 400;
+  font-size: 20px;
+  padding: 1.5rem;
+  border: none;
+  border-radius: 12px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  margin-bottom: auto;
+  margin-top: 4rem;
+}
+
+.send-button:hover {
+  /* background-color: #f97316; */
+  transform: translateY(-1px);
+}
+
+.send-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Error message */
+.error-message {
+  color: red;
+  font-size: 11px;
+  /* background-color: #fee2e2;
+  border: 1px solid #fca5a5; */
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  margin-top: 0.75rem;
+  /* text-align: center; */
+}

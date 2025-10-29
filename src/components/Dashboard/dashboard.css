@@ -1,0 +1,198 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  background: #e9e7e5;
+  /* min-height: 100vh; */
+  padding-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 30%;
+  color: #555;
+  font-size: 1.2rem;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.home-logo {
+  height: 25px;
+}
+
+.home-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.notify-btn {
+  position: relative;
+}
+
+.notify-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  padding: 2px 5px;
+}
+
+.home-greeting {
+  padding: 0 1rem;
+}
+
+.home-greeting h1 {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.home-greeting p {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.home-balance-card {
+  margin: 1rem;
+  border-radius: 1.5rem;
+  position: relative;
+  color: white;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(247, 148, 29, 0.9);
+}
+
+.card-content {
+  position: relative;
+  padding: 2rem;
+  z-index: 2;
+}
+
+.balance-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.balance-display h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.balance-display button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card-buttons button {
+  flex: 1;
+  padding: 0.8rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: 0.3s ease;
+}
+
+.send-btn {
+  background: #f7931d;
+  color: white;
+}
+
+.receive-btn {
+  background: white;
+  color: black;
+}
+
+.card-buttons button:hover {
+  transform: scale(1.03);
+}
+
+.home-transactions {
+  background: white;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.trans-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.trans-header button {
+  color: #f7931d;
+  border: none;
+  background: none;
+  font-weight: 500;
+}
+
+.trans-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.trans-modal {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 100;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.trans-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.trans-modal-header h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.trans-modal-header button {
+  color: #f7931d;
+  font-weight: 600;
+  border: none;
+  background: none;
+}

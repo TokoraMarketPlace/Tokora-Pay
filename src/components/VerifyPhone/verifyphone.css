@@ -1,0 +1,73 @@
+.verifyphone
+{
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 2rem;
+}
+
+.header
+{
+    display: flex;
+    /* gap: 1rem; */
+}
+
+.header > h2
+{
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.header > p
+{
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.phone
+{
+    display: flex;
+    background-color: rgba(236, 235, 235, 1);
+    border: 1px solid rgba(191, 190, 188, 1);
+    border-radius: 15px;
+}
+
+.phone > .code
+{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 1rem;
+    border-right: 1px solid black;
+}
+
+.code-menu
+{
+    display: flex;
+    border: 1px solid rgba(191, 190, 188, 1);
+    background-color: rgba(236, 235, 235, 1);
+    outline: none;
+}
+
+.phone > .phone-input
+{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: auto;
+    padding: 1rem;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.diff
+{
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(140, 140, 140, 1);
+    align-items: center;
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-top: 1rem;
+}
