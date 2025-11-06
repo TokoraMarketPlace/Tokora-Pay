@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css"
 import { Routes, Route } from "react-router-dom";
-import SplashScreen from "./components/SplalshScreen/Splashscreen.jsx"
+import SplashScreen from "./components/SplashScreen/Splashscreen.jsx"
 import SignUp from "./components/SignUp/SignUp.jsx";
 import Layout from "./components/Layout.jsx";
 import VerifyEmail from "./components/VerifyEmail/VerifyEmail.jsx";
@@ -19,6 +19,9 @@ import Sendtovendor from "./components/Sendtovendor/Sendtovendor.jsx";
 import Morersettings from "./components/Moresettings/Moresettings.jsx"
 import Logout from "./components/Logout/Logout.jsx"
 import TransactionDetails from "./components/TransactionDetails/TransactionDetails.jsx";
+import Confirmation from "./components/Confirmation/Confirmation.jsx";
+import Reciept from "./components/Reciept/Reciept.jsx";
+import Connectwallet from "./components/Connectwallet/Connectwallet.jsx";
 
 
 function App() {
@@ -39,6 +42,10 @@ function App() {
       <Route path="/more-settings" element={<Morersettings />} />
       <Route path="/logout" element={<Logout />} />
       <Route path="/transaction/:id" element={<TransactionDetails />} />
+      <Route path="/confirmation" element={<Confirmation />} />
+      <Route path="/reciept" element={<Reciept />} />
+      <Route path="/connect-wallet" element={<Connectwallet />} />
+      
 
 
       {/* Pages with bottom navbar */}

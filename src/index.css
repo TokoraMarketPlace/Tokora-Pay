@@ -1,5 +1,5 @@
 :root {
-  font-family: "PolySans", sans-serif;
+  font-family: "PolySans", "Inter", "Manrope", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 }
@@ -10,7 +10,9 @@
   padding: 0;
 }
 
-
+body {
+  font-family: "PolySans", "Inter", "Manrope", sans-serif;
+}
 
 
 

@@ -62,7 +62,7 @@ const Verifyphone = () => {
           </select>
 
           <input
-            type="tel"
+            type="number"
             placeholder="000 000 0000"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}

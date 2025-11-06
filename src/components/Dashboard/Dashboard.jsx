@@ -29,7 +29,7 @@ const Dashboard = () => {
         // Mock data for now
         const data = {
           name: "Godknows Ukari",
-          balance: 151250.0,
+          balance: 151250.00,
           transactions: [
             { id: 1, type: "sent", name: "Esimvie Izu", amount: "1,500 USDC", ngn: "2,280,000 NGN", time: "5:43 PM" },
             { id: 2, type: "received", name: "Elisha Adewuyi", amount: "15,000 USDC", ngn: "22,800,000 NGN", time: "21 AUG 2025 | 11:32 AM" },
@@ -84,7 +84,7 @@ const Dashboard = () => {
             <Bell size={22} />
             <span className="notify-badge">3</span>
           </button>
-          <button onClick={handleUser}>
+          <button className="userbutton" onClick={handleUser}>
             <User size={22} />
           </button>
         </div>
@@ -113,7 +113,7 @@ const Dashboard = () => {
         <div className="card-content">
           <p>Account Balance</p>
           <div className="balance-display">
-            <h2>{hideBalance ? "********" : `$${user.balance.toLocaleString()}`}</h2>
+            <h2>{hideBalance ? "*********" : `$${user.balance.toLocaleString()}`}</h2>
             <button onClick={toggleBalance}>
               {hideBalance ? <FaEyeSlash /> : <FaEye />}
             </button>
@@ -139,8 +139,9 @@ const Dashboard = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.6 }}
       >
+        <div className="cloud" onClick={() => setExpandedHistory(true)} ></div>
         <div className="trans-header">
-          <h3>Transaction History</h3>
+          <h3>Transaction history</h3>
           <button onClick={() => setExpandedHistory(true)}>View All</button>
         </div>
 

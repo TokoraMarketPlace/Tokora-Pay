@@ -44,7 +44,7 @@ const Sendtovendor = () => {
       currencyTo: "NGN",
     });
 
-    navigate("/confirm-wallet", {
+    navigate("/confirmation", {
       state: { usdcAmount, ngnAmount },
     });
   };

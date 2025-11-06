@@ -56,7 +56,7 @@ const PhoneCode = () => {
       // Temporary dummy success (for now)
       console.log("Verifying OTP:", code);
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/connect-wallet");
       }, 1000);
     } catch (err) {
       console.error(err);

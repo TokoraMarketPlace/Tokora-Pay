@@ -1,0 +1,84 @@
+.confirmation
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+    gap: 2rem;
+}
+
+.confirmation-header
+{
+    display: flex;
+    align-items: center;
+}
+
+.confirmation-header > h2
+{
+    margin: auto;
+}
+
+.confirmation-body
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.confirmation-body > img
+{
+    width: 6rem;
+    margin: auto;
+}
+
+.confirmation-details
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 25px;
+    background-color: rgba(254, 219, 176, 1);
+    border: .5px solid rgba(213, 117, 1, 1);
+    padding: 1.5rem;
+}
+
+.confirmation-details > h5
+{
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+}
+
+.amount-sent
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.amount-sent > h5
+{
+    display: flex;
+    gap: .3rem;
+    align-items: center;
+}
+
+.confirmation-body > p
+{
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.confirmation-down
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.reciept-btn
+{
+    color: black;
+    background-color: rgba(255, 208, 152, 1);
+    border: .5px solid rgba(213, 117, 1, 1);
+}
