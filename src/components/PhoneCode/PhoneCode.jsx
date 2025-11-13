@@ -1,35 +1,52 @@
-import React, { useState } from "react";
-import "./phonecode.css";
+import React, { useState, useRef } from "react";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import "./phonecode.css";
 
 const PhoneCode = () => {
   const navigate = useNavigate();
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const inputRefs = useRef([]);
 
   // Handle OTP input change
   const handleChange = (e, index) => {
-    const value = e.target.value.slice(-1); // only last digit
+    const value = e.target.value.slice(-1);
     if (!/^[0-9]*$/.test(value)) return;
 
     const newOtp = [...otp];
     newOtp[index] = value;
     setOtp(newOtp);
 
-    // Auto-focus next input
     if (value && index < 5) {
-      document.getElementById(`otp-${index + 1}`).focus();
+      inputRefs.current[index + 1].focus();
     }
   };
 
-  // Handle OTP submission
+  // Handle backspace navigation
+  const handleKeyDown = (e, index) => {
+    if (e.key === "Backspace") {
+      e.preventDefault();
+      const newOtp = [...otp];
+
+      if (otp[index] === "") {
+        if (index > 0) {
+          inputRefs.current[index - 1].focus();
+          newOtp[index - 1] = "";
+        }
+      } else {
+        newOtp[index] = "";
+      }
+      setOtp(newOtp);
+    }
+  };
+
   const handleVerify = async (e) => {
     e.preventDefault();
     setError("");
 
     const code = otp.join("");
-
     if (code.length < 6) {
       setError("Please enter all 6 digits.");
       return;
@@ -37,27 +54,9 @@ const PhoneCode = () => {
 
     try {
       setLoading(true);
-
-      //  Replace this with your backend call
-      // Example: POST to your API endpoint
-      // const res = await fetch("https://api.yourapp.com/verify-otp", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({ otp: code }),
-      // });
-      // const data = await res.json();
-
-      // if (data.success) {
-      //   navigate("/dashboard");
-      // } else {
-      //   setError(data.message || "Invalid OTP, please try again.");
-      // }
-
-      // Temporary dummy success (for now)
       console.log("Verifying OTP:", code);
-      setTimeout(() => {
-        navigate("/connect-wallet");
-      }, 1000);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      navigate("/connect-wallet");
     } catch (err) {
       console.error(err);
       setError("Something went wrong. Please try again.");
@@ -67,40 +66,75 @@ const PhoneCode = () => {
   };
 
   return (
-    <div className="emailcode">
+    <motion.div
+      className="emailcode"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className="header">
-        <h2>Verify mobile number</h2>
-        <p>Please verify the code that was sent to +234 123 456 7890</p>
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          Verify mobile number
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          Please verify the code that was sent to +234 123 456 7890
+        </motion.p>
 
         <div className="verifycode">
           {otp.map((digit, index) => (
-            <input
+            <motion.input
               key={index}
               id={`otp-${index}`}
               type="text"
               maxLength={1}
               className="number"
               value={digit}
+              ref={(el) => (inputRefs.current[index] = el)}
               onChange={(e) => handleChange(e, index)}
+              onKeyDown={(e) => handleKeyDown(e, index)}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.1 * index }}
             />
           ))}
         </div>
 
-        {error && <p style={{ color: "red", textAlign: "center" }}>{error}</p>}
+        {error && (
+          <motion.p
+            style={{ color: "red", textAlign: "center" }}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+          >
+            {error}
+          </motion.p>
+        )}
 
-        <button
+        <motion.button
           className="verify"
           onClick={handleVerify}
           disabled={loading}
-          style={{
-            opacity: loading ? 0.7 : 1,
-            cursor: loading ? "not-allowed" : "pointer",
-          }}
+          whileTap={{ scale: 0.95 }}
+          animate={{ opacity: loading ? 0.7 : 1 }}
+          transition={{ duration: 0.3 }}
+          style={{ cursor: loading ? "not-allowed" : "pointer" }}
         >
           {loading ? "Verifying..." : "Verify"}
-        </button>
+        </motion.button>
 
-        <p id="p">
+        <motion.p
+          id="p"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
           Didn’t receive?{" "}
           <span
             onClick={() => alert("Resend code triggered!")}
@@ -112,9 +146,9 @@ const PhoneCode = () => {
           >
             Resend
           </span>
-        </p>
+        </motion.p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

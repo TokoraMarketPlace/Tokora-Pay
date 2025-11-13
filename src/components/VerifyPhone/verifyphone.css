@@ -57,6 +57,7 @@
     outline: none;
     width: auto;
     padding: 1rem;
+    padding-left: 6rem;
     font-weight: 400;
     font-size: 16px;
 }
@@ -70,4 +71,11 @@
     text-align: center;
     margin-bottom: 4rem;
     padding-top: 1rem;
+}
+
+.custom-select
+{
+    position: absolute;
+    padding-top: .8rem;
+    padding-left: 1rem;
 }

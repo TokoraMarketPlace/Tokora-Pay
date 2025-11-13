@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "./emailcode.css";
 import { useNavigate } from "react-router-dom";
 
@@ -11,14 +12,14 @@ const EmailCode = () => {
   const [timer, setTimer] = useState(90);
   const inputRefs = useRef([]);
 
-  //  Countdown timer for "Resend code"
+  // Countdown timer
   useEffect(() => {
     const countdown =
       timer > 0 && setInterval(() => setTimer((t) => t - 1), 1000);
     return () => clearInterval(countdown);
   }, [timer]);
 
-  // Handle code input movement
+  // Handle input change
   const handleChange = (value, index) => {
     if (!/^[0-9]*$/.test(value)) return;
 
@@ -26,13 +27,22 @@ const EmailCode = () => {
     newCode[index] = value;
     setCode(newCode);
 
-    // Move focus to next input automatically
-    if (value && index < 5) {
-      inputRefs.current[index + 1].focus();
+    if (value && index < 5) inputRefs.current[index + 1].focus();
+  };
+
+  // Handle backspace
+  const handleKeyDown = (e, index) => {
+    if (e.key === "Backspace") {
+      if (code[index] === "" && index > 0) {
+        inputRefs.current[index - 1].focus();
+      }
+      const newCode = [...code];
+      newCode[index] = "";
+      setCode(newCode);
     }
   };
 
-  // Handle "Verify" button click
+  // Verify handler
   const handleVerify = async () => {
     const enteredCode = code.join("");
     setError("");
@@ -43,15 +53,10 @@ const EmailCode = () => {
     }
 
     setLoading(true);
-
     try {
-
-      // Simulated delay
       await new Promise((resolve) => setTimeout(resolve, 1500));
-
       console.log("Email verified successfully");
-      navigate("/verifyphone"); // Navigate after success
-
+      navigate("/verifyphone");
     } catch (err) {
       console.error(err);
       setError(err.message || "Invalid or expired code.");
@@ -60,22 +65,13 @@ const EmailCode = () => {
     }
   };
 
-  // Handle resend
+  // Resend handler
   const handleResend = async () => {
     if (timer > 0) return;
     setTimer(90);
     setError("");
 
     try {
-      // Backend resend placeholder
-      /*
-      await fetch("https://your-api.com/auth/resend-code", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: userEmail }),
-      });
-      */
-
       console.log("Resent verification code");
     } catch (err) {
       console.error(err);
@@ -84,53 +80,97 @@ const EmailCode = () => {
   };
 
   return (
-    <div className="emailcode">
+    <motion.div
+      className="emailcode"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="header">
-        <h2>Enter verification code from email</h2>
-        <p>Please enter the code that we emailed to <strong>useremail@gmail.com</strong></p>
+        <motion.h2
+          initial={{ y: -20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          Enter verification code from email
+        </motion.h2>
+        <p>
+          Please enter the code that we emailed to{" "}
+          <strong>useremail@gmail.com</strong>
+        </p>
 
         <div className="verifycode">
           {code.map((digit, index) => (
-            <input
+            <motion.input
               key={index}
               type="text"
               maxLength={1}
               value={digit}
               onChange={(e) => handleChange(e.target.value, index)}
+              onKeyDown={(e) => handleKeyDown(e, index)}
               ref={(el) => (inputRefs.current[index] = el)}
               className="number"
+              whileFocus={{ scale: 1.15, borderColor: "rgba(247, 148, 29, 1)" }}
+              transition={{ type: "spring", stiffness: 300 }}
             />
           ))}
         </div>
 
-        {error && (
-          <p style={{ color: "red", fontSize: "11px", textAlign: "center" }}>
-            {error}
-          </p>
-        )}
+        <AnimatePresence>
+          {error && (
+            <motion.p
+              style={{
+                color: "red",
+                fontSize: "11px",
+                textAlign: "center",
+              }}
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+            >
+              {error}
+            </motion.p>
+          )}
+        </AnimatePresence>
 
-        <button
+        <motion.button
           className="verify"
           onClick={handleVerify}
           disabled={loading}
+          whileTap={{ scale: 0.95 }}
+          animate={{
+            backgroundColor: loading
+              ? "rgba(247,148,29,0.6)"
+              : "rgba(247,148,29,1)",
+          }}
+          transition={{ duration: 0.3 }}
         >
           {loading ? "Verifying..." : "Verify"}
-        </button>
+        </motion.button>
 
         <p id="p">
           {timer > 0 ? (
-            <>Resend code in {Math.floor(timer / 60)}:{(timer % 60).toString().padStart(2, "0")}</>
+            <>
+              Resend code in {Math.floor(timer / 60)}:
+              {(timer % 60).toString().padStart(2, "0")}
+            </>
           ) : (
-            <span
+            <motion.span
               onClick={handleResend}
-              style={{ color: "rgba(247, 148, 29, 1)", cursor: "pointer", fontWeight: 600 }}
+              style={{
+                color: "rgba(247, 148, 29, 1)",
+                cursor: "pointer",
+                fontWeight: 600,
+              }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.9 }}
             >
               Resend code
-            </span>
+            </motion.span>
           )}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

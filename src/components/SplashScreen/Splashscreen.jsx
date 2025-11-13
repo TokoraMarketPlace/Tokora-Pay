@@ -37,9 +37,11 @@ const SplashScreen = () => {
         </button>
         <p className="login-text">
           Already have an account?{" "}
-          <a href="/signup" className="login-link">
+          <button className="login-link"
+          onClick={() => navigate("/login")}
+          >
             Login
-          </a>
+          </button>
         </p>
       </div>
     </div>

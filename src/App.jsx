@@ -22,6 +22,7 @@ import TransactionDetails from "./components/TransactionDetails/TransactionDetai
 import Confirmation from "./components/Confirmation/Confirmation.jsx";
 import Reciept from "./components/Reciept/Reciept.jsx";
 import Connectwallet from "./components/Connectwallet/Connectwallet.jsx";
+import Login from "./components/Login/Login.jsx";
 
 
 function App() {
@@ -45,6 +46,8 @@ function App() {
       <Route path="/confirmation" element={<Confirmation />} />
       <Route path="/reciept" element={<Reciept />} />
       <Route path="/connect-wallet" element={<Connectwallet />} />
+      <Route path="/login" element={<Login />} />
+
       
 
 

@@ -8,7 +8,7 @@ import TransactionRow from "../Transactionrow/TransactionRow";
 import { Icon } from "@iconify/react";
 import paperImage from "@iconify/icons-mdi/paper-plane";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Dashboard = () => {
   const [hideBalance, setHideBalance] = useState(false);
@@ -18,18 +18,25 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  // 🔥 Fetch user + transactions from backend
+  // Load username from localStorage if available
+  useEffect(() => {
+    const storedName = localStorage.getItem("username");
+    if (storedName) {
+      setUser(prev => ({ ...prev, name: storedName }));
+    }
+  }, []);
+
+  // Fetch user + transactions from backend
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Example backend endpoints
+        // Replace with your real backend fetch
         // const res = await fetch("https://api.tokorapay.com/dashboard");
         // const data = await res.json();
 
-        // Mock data for now
         const data = {
           name: "Godknows Ukari",
-          balance: 151250.00,
+          balance: 151250.0,
           transactions: [
             { id: 1, type: "sent", name: "Esimvie Izu", amount: "1,500 USDC", ngn: "2,280,000 NGN", time: "5:43 PM" },
             { id: 2, type: "received", name: "Elisha Adewuyi", amount: "15,000 USDC", ngn: "22,800,000 NGN", time: "21 AUG 2025 | 11:32 AM" },
@@ -42,7 +49,8 @@ const Dashboard = () => {
           ],
         };
 
-        setUser({ name: data.name, balance: data.balance });
+        setUser(prev => ({ ...prev, name: data.name, balance: data.balance }));
+        localStorage.setItem("username", data.name); // Save username
         setTransactions(data.transactions);
       } catch (err) {
         console.error(err);
@@ -57,8 +65,7 @@ const Dashboard = () => {
   const handleSend = () => navigate("/transfer");
   const handleDeposit = () => navigate("/recieve");
   const handleUser = () => navigate("/settings");
-  const handleNotification = () => navigate("/notification")
-
+  const handleNotification = () => navigate("/notification");
   const toggleBalance = () => setHideBalance(!hideBalance);
 
   if (loading) {
@@ -98,7 +105,17 @@ const Dashboard = () => {
         transition={{ delay: 0.3 }}
       >
         <h1>Good Morning</h1>
-        <p>{user.name}</p>
+        <AnimatePresence mode="wait">
+          <motion.p
+            key={user.name}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.5 }}
+          >
+            {user.name}
+          </motion.p>
+        </AnimatePresence>
       </motion.div>
 
       {/* Balance Card */}
@@ -112,22 +129,37 @@ const Dashboard = () => {
         <div className="card-overlay"></div>
         <div className="card-content">
           <p>Account Balance</p>
-          <div className="balance-display">
+          <motion.div
+            className="balance-display"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+          >
             <h2>{hideBalance ? "*********" : `$${user.balance.toLocaleString()}`}</h2>
             <button onClick={toggleBalance}>
               {hideBalance ? <FaEyeSlash /> : <FaEye />}
             </button>
-          </div>
+          </motion.div>
 
           <div className="card-buttons">
-            <button className="send-btn" onClick={handleSend}>
+            <motion.button
+              className="send-btn"
+              onClick={handleSend}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
               <Icon icon={paperImage} style={{ transform: "rotate(-45deg)" }} />
               Send
-            </button>
-            <button className="receive-btn" onClick={handleDeposit}>
+            </motion.button>
+            <motion.button
+              className="receive-btn"
+              onClick={handleDeposit}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
               <Icon icon={paperImage} style={{ transform: "rotate(135deg)" }} />
               Receive
-            </button>
+            </motion.button>
           </div>
         </div>
       </motion.div>
@@ -137,19 +169,19 @@ const Dashboard = () => {
         className="home-transactions"
         initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.6 }}
+        transition={{ delay: 0.7 }}
       >
-        <div className="cloud" onClick={() => setExpandedHistory(true)} ></div>
+        <div className="cloud" onClick={() => setExpandedHistory(true)}></div>
         <div className="trans-header">
           <h3>Transaction history</h3>
           <button onClick={() => setExpandedHistory(true)}>View All</button>
         </div>
 
-        <div className="trans-list">
+        <motion.div layout className="trans-list">
           {transactions.map((tx) => (
             <TransactionRow key={tx.id} tx={tx} />
           ))}
-        </div>
+        </motion.div>
       </motion.div>
 
       {/* Expanded Transactions Modal */}
