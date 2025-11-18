@@ -52,7 +52,7 @@ const History = () => {
       {/* Scrollable list */}
       <div className="history__list">
         {filteredTransactions.map((tx) => (
-          <TransactionRow key={tx.id} tx={tx} />
+          <TransactionRow key={tx.id} tamount={tx.amount} tname={tx.name} ttype={tx.type} ttime={tx.time} tx={tx} />
         ))}
         {filteredTransactions.length === 0 && (
           <p className="history__empty">No transactions found.</p>

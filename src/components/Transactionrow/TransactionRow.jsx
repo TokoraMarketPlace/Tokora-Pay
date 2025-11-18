@@ -6,7 +6,7 @@ const TransactionRow = ({ tx }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/transaction/${tx.id}`); // 👈 dynamic route
+    navigate(`/transaction/${tx.id}`); // dynamic route
   };
 
   return (

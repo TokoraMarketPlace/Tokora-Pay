@@ -89,7 +89,7 @@ const Dashboard = () => {
         <div className="home-icons">
           <button className="notify-btn" onClick={handleNotification}>
             <Bell size={22} />
-            <span className="notify-badge">3</span>
+            <span className="notify-badge">2</span>
           </button>
           <button className="userbutton" onClick={handleUser}>
             <User size={22} />
@@ -193,6 +193,7 @@ const Dashboard = () => {
           exit={{ y: "100%" }}
           transition={{ type: "spring", stiffness: 80 }}
         >
+          <div className="cloud" onClick={() => setExpandedHistory(false)}></div>
           <div className="trans-modal-header">
             <h3>All Transactions</h3>
             <button onClick={() => setExpandedHistory(false)}>Close</button>

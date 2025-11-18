@@ -8,7 +8,7 @@ import ProfilePic from "../../assets/usericon.png";
 const Settings = () => {
   const navigate = useNavigate();
 
-  // --- Navigate handlers (can later call backend endpoints)
+  // - Navigate handlers (can later call backend endpoints)
   const handleNext = () => navigate("/more-settings");
   const handleLogout = () => {
     //  You’ll replace this with real backend logout later
@@ -49,7 +49,7 @@ const Settings = () => {
       <section className="setting__section">
         <h3>Account Details</h3>
         <div className="setting__card">
-          <div className="setting__item">
+          <div className="setting__item" onClick={handleNext}>
             <div className="setting__item-left">
               <IdCard />
               <p>Personal Info</p>
@@ -59,7 +59,7 @@ const Settings = () => {
             </button>
           </div>
 
-          <div className="setting__item">
+          <div className="setting__item" onClick={handleNext}>
             <div className="setting__item-left">
               <Languages />
               <p>Language</p>
@@ -69,7 +69,7 @@ const Settings = () => {
             </button>
           </div>
 
-          <div className="setting__item">
+          <div className="setting__item" onClick={handleNext}s>
             <div className="setting__item-left">
               <Contact />
               <p>Refer Friend</p>
@@ -85,7 +85,7 @@ const Settings = () => {
       <section className="setting__section">
         <h3>Help and Support</h3>
         <div className="setting__card">
-          <div className="setting__item">
+          <div className="setting__item" onClick={handleNext}>
             <div className="setting__item-left">
               <HelpCircle />
               <p>Help Center</p>
@@ -95,7 +95,7 @@ const Settings = () => {
             </button>
           </div>
 
-          <div className="setting__item">
+          <div className="setting__item" onClick={handleNext}>
             <div className="setting__item-left">
               <BiConversation />
               <p>FAQ</p>
@@ -105,7 +105,7 @@ const Settings = () => {
             </button>
           </div>
 
-          <div className="setting__item logout">
+          <div className="setting__item logout" onClick={handleLogout}>
             <div className="setting__item-left">
               <BiExit />
               <p>Log Out</p>

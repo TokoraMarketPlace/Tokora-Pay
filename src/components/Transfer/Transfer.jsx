@@ -113,13 +113,13 @@ const Transfer = () => {
         >
           <input
             type="text"
-            placeholder="      Recipient Bank"
+            placeholder="🏦 Recipient Bank"
             value={bank}
             onChange={(e) => setBank(e.target.value)}
             className="transfer-input bank-input"
             required
           />
-          <Building2 size={20} className="bank-icon" />
+          {/* <Building2 size={20} className="bank-icon" /> */}
         </motion.div>
 
         {error && (

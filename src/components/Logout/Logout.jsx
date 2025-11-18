@@ -8,13 +8,13 @@ const Logout = () => {
   const navigate = useNavigate();
 
   const handlePrevious = () => {
-    navigate("/settings");
+    navigate(-1);
   };
 
   const handleLogout = async () => {
     // 🔧 ready for backend integration
     // Example: await fetch("/api/logout", { method: "POST" });
-    navigate("/signup");
+    navigate("/");
   };
 
   return (
@@ -36,7 +36,7 @@ const Logout = () => {
         <p className="logout-message">
           You can always log back in at any time. If you just want to switch
           accounts, you can{" "}
-          <a href="/signup" className="logout-link">
+          <a href="/login" className="logout-link">
             add another account.
           </a>
         </p>
